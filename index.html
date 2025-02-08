@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test tekshirish</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Test <span class="highlight">tekshirish</span></h1>
+
+    <!-- Kitob ID (Faqat 7 xonali raqam) -->
+    <div class="test-section">
+        <h3>Kitob ID</h3>
+        <input type="text" id="bookId" maxlength="7" required>
+        <div class="error-message" id="bookIdError">Kitob ID 7 ta raqamdan iborat bo‘lishi kerak!</div>
+    </div>
+
+    <!-- Telegram ID (Faqat 10 xonali raqam) -->
+    <div class="test-section">
+        <h3>Telegram ID</h3>
+        <input type="text" id="telegramId" maxlength="10" required>
+        <div class="error-message" id="telegramIdError">Telegram ID 10 ta raqamdan iborat bo‘lishi kerak!</div>
+    </div>
+    <form id="testForm">
+        <div class="container">
+            <div class="column">
+                <h3>Majburiy fanlar</h3>
+                <div class="questions" id="mandatory"></div>
+            </div>
+
+            <div class="column">
+                <h3>Fan 1</h3>
+                <div class="questions" id="subject1"></div>
+            </div>
+
+            <div class="column">
+                <h3>Fan 2</h3>
+                <div class="questions" id="subject2"></div>
+            </div>
+        </div>
+
+        <button class="button_submit" type="submit">Yuborish</button>
+        <h2>Umumiy ball: <span id="result">0</span></h2>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

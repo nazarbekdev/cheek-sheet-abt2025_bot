@@ -1,0 +1,163 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+/* ✅ Responsiv dizayn uchun */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.column {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 15%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Savollarni to‘g‘ri joylashtirish */
+.questions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Savollar qatori */
+.question {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ✅ Variant tugmachalari */
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+.option input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: lightgray;
+}
+
+.option input:checked + span {
+    background-color: rgb(57, 177, 5);
+    color: white;
+    border-color: rgb(4, 173, 4);
+    border-radius: 50%;  /* Doira shaklini saqlash */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+/* ✅ Yuborish tugmasi */
+.button_submit {
+    width: 140px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.button_submit:hover {
+    background-color: darkred;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.test-section {
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 5px auto;
+}
+
+
+/* ✅ Inputlar uchun uslub */
+input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+}
+
+/* ✅ Xato bo‘lsa input qizil bo‘lishi */
+input.invalid {
+    border-color: red;
+    background-color: #ffe6e6;
+}
+
+/* ✅ Xabar (xatolik yoki muvaffaqiyat) */
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: none;
+    margin-top: 5px;
+}
+
+/* ✅ RESPONSIVE DIZAYN (mobil qurilmalar uchun) */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 40%;
+    }
+
+    .option {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .button_submit {
+        width: 160px;
+        height: 50px;
+        font-size: 18px;
+    }
+}
