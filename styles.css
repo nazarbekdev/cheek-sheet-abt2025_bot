@@ -69,11 +69,12 @@ h1 {
     background-color: lightgray;
 }
 
-.option input:checked + span {
+.option input:checked+span {
     background-color: rgb(57, 177, 5);
     color: white;
     border-color: rgb(4, 173, 4);
-    border-radius: 50%;  /* Doira shaklini saqlash */
+    border-radius: 50%;
+    /* Doira shaklini saqlash */
     width: 100%;
     height: 100%;
     display: flex;
@@ -82,6 +83,7 @@ h1 {
     font-size: 14px;
     font-weight: bold;
 }
+
 /* ✅ Yuborish tugmasi */
 .button_submit {
     width: 140px;
@@ -105,6 +107,7 @@ h3 {
     font-size: 20px;
     margin-bottom: 5px;
 }
+
 .test-section {
     padding: 10px;
     width: 100%;
@@ -146,7 +149,7 @@ input.invalid {
     }
 
     .column {
-        width: 40%;
+        width: 60%;
     }
 
     .option {

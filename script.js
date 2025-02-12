@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Tugmani yashirish
         document.getElementById("submitButton").style.display = "none";
 
-        document.getElementById("result").innerText = "Hisoblanmoqda...";
+        document.getElementById("result").innerText = "♻️ Tekshirilmoqda...";
 
         const telegramId = document.getElementById("telegramId").value;
         const bookId = document.getElementById("bookId").value;
@@ -21,16 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             // 1. Foydalanuvchini tekshirish
-            let userInfo = await fetchAPI(`http://178.18.254.46/api/v1/block-test-info/6415161658`);
+            let userInfo = await fetchAPI(`https://testifyhub.uz/api/v1/block-test-info/${telegramId}`);
             if (!userInfo || userInfo.status === "yakunlandi" || userInfo.status === "topshirmadi") {
-                alert(`Siz testni allaqachon yakunlagansiz yoki topshirmagansiz!`);
+                alert(`Siz allaqachon testni yakunlagansiz yoki topshirmagansiz!`);
                 return;
             }
 
             // 2. To‘g‘ri javoblarni olish
             let correctAnswers = await fetchAPI(`https://uzcamtest.site/api/answer/${bookId}`);
             if (!correctAnswers || !correctAnswers.answers) {
-                alert("To‘g‘ri javoblar topilmadi!");
+                alert(`'${bookId}' raqamli kitobcha mavjud emas!\nKitobcha raqamini to'g'ri kiriting.`);
                 return;
             }
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let totalBall = majburiyBall + fan1Ball + fan2Ball;
 
             // 5. Natijani bazaga saqlash
-            let saveResult = await fetch("http://178.18.254.46/api/v1/natijalar", {
+            let saveResult = await fetch("https://testifyhub.uz/api/v1/natijalar", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!saveResult.ok) throw new Error("Natijalarni saqlashda xatolik!");
 
             // 6. Statusni 'yakunlandi'ga o‘zgartirish
-            let response = await fetch(`http://178.18.254.46/api/v1/block-test-patch/${telegramId}`, {
+            let response = await fetch(`https://testifyhub.uz/api/v1/block-test-patch/${telegramId}`, {
                 method: "PATCH",
                 headers: { 
                     "Content-Type": "application/json",
