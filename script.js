@@ -151,12 +151,19 @@ document.getElementById("bookId").addEventListener("input", function () {
     errorDiv.style.display = this.value.length !== 7 ? "block" : "none";
 });
 
-// **Telegram ID tekshirish**
+// **Telegram foydalanuvchi ID tekshirish**
 document.getElementById("telegramId").addEventListener("input", function () {
     let errorDiv = document.getElementById("telegramIdError");
-    this.value = this.value.replace(/\D/g, ""); // Faqat raqam
-    errorDiv.style.display = this.value.length !== 10 ? "block" : "none";
+
+    // Faqat raqamlarni qabul qilish
+    this.value = this.value.replace(/\D/g, "");
+
+    // Telegram foydalanuvchi ID'lari 7 dan 10 gacha xonali bo'lishi kerak
+    let isValid = this.value.length >= 7 && this.value.length <= 10;
+
+    errorDiv.style.display = isValid ? "none" : "block";
 });
+
 
 // **Yuborishdan oldin tekshirish**
 document.getElementById("submitBtn").addEventListener("click", function (event) {
